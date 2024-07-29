@@ -4,7 +4,7 @@ import { FaFacebook, FaGoogle, FaLinkedin } from 'react-icons/fa';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Link } from 'react-router-dom';
-import './SignUp.css';
+import './SignUp.scss';
 
 const SignUp = ({ onSwitch }) => {
   const [name, setName] = useState('');

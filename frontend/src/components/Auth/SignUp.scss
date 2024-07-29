@@ -1,12 +1,17 @@
 @import url("https://fonts.googleapis.com/css?family=Montserrat:400,800");
 
+$primary-color: coral;
+$secondary-color: #f5434c;
+$bg-color: #ffffff;
+$font-family: "Montserrat", sans-serif;
+
 body {
-  background: #ffffff;
+  background: $bg-color;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  font-family: "Montserrat", sans-serif;
+  font-family: $font-family;
   height: 100vh;
   margin: -20px 0 50px;
 }
@@ -14,95 +19,91 @@ body {
 .wrapperU {
   display: flex;
 }
+
 .form-containerU {
   display: flex;
   flex-direction: column;
-  align-items: center; 
-  justify-content: center; 
-  width: 100%; 
+  align-items: center;
+  justify-content: center;
+  width: 100%;
 }
 
 .containerU, .containerUU {
-  box-shadow: 0 0px 5px coral, 0 10px 10px rgba(0, 0, 0, 0.22);
+  box-shadow: 0 0px 5px $primary-color, 0 10px 10px rgba(0, 0, 0, 0.22);
   padding: 50px;
   width: 400px;
   height: 430px;
   max-width: 100%;
   text-align: center;
-}
-.containerUU{
-  border-top-right-radius: 20px;
-  border-bottom-right-radius: 20px;
-  border-top-left-radius: 5px;
-  border-bottom-left-radius: 5px;
-}
-.containerU{
-  border-top-right-radius: 5px;
-  border-bottom-right-radius: 5px;
-  border-top-left-radius: 20px;
-  border-bottom-left-radius: 20px;
-}
-.containerU {
-  background-color: #fff;
+  border-radius: 20px;
 }
 
 .containerUU {
-  background: linear-gradient(to right, coral, #f5434c);
+  background: linear-gradient(to right, $primary-color, $secondary-color);
   height: auto;
+  border-radius: 5px 20px 20px 5px;
+}
+
+.containerU {
+  background-color: $bg-color;
+  border-radius: 20px 5px 5px 20px;
 }
 
 .social-containerU {
   display: flex;
   justify-content: center;
   margin-bottom: 20px;
-}
 
-.socialU {
-  border: 1px solid #ffffff;
-  border-radius: 50%;
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  margin: 0 10px;
-  height: 40px;
-  width: 40px;
-  color: #333;
-  font-size: 20px;
-  text-decoration: none;
+  .socialU {
+    border: 1px solid #ffffff;
+    border-radius: 50%;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 10px;
+    height: 40px;
+    width: 40px;
+    color: #333;
+    font-size: 20px;
+    text-decoration: none;
+    transition: background-color 0.3s;
 
-}
-.socialU.facebook:hover {
-  color: #3b5998; 
-}
+    &:hover {
+      background-color: #ffffff;
+    }
 
-.socialU.google:hover {
-  color: #db4437; 
-}
+    &.facebook:hover {
+      color: #3b5998;
+    }
 
-.socialU.linkedin:hover {
-  color: #0e76a8;
-}
-.socialU:hover {
-  background-color: #ffffff
+    &.google:hover {
+      color: #db4437;
+    }
 
+    &.linkedin:hover {
+      color: #0e76a8;
+    }
+  }
 }
 
 .inputU {
   background-color: #eee;
-  border: 1px solid rgb(255, 255, 255);
+  border: 1px solid #ffffff;
   outline: none;
   border-radius: 20px;
   padding: 12px 15px;
   margin: 8px 0;
   width: 100%;
-}
-.inputU:focus{
-  background-color: #eee;
-  border: 2px solid coral;
-  outline: none;
-  padding: 12px 15px;
-  margin: 8px 0;
-  width: 100%;
+  transition: border-color 0.3s;
+
+  &:focus {
+    background-color: #eee;
+    border: 2px solid $primary-color;
+  }
+
+  &.error {
+    border-color: red;
+  }
 }
 
 .link {
@@ -119,7 +120,7 @@ body {
   font-size: 42px;
   margin: 0;
   margin-bottom: 50px;
-  background: linear-gradient(to right, coral, #f5434c);
+  background: linear-gradient(to right, $primary-color, $secondary-color);
   -webkit-background-clip: text;
   color: transparent;
 }
@@ -127,7 +128,7 @@ body {
 .buttonU {
   border-radius: 20px;
   border: 1px solid transparent;
-  background: linear-gradient(to right, coral, #f5434c);
+  background: linear-gradient(to right, $primary-color, $secondary-color);
   color: #ffffff;
   font-size: 12px;
   font-weight: bold;
@@ -136,14 +137,12 @@ body {
   text-transform: uppercase;
   transition: transform 0.1s ease;
   cursor: pointer;
-}
-.buttonU:active:hover {
-  transform: scale(1.15);
-  text-decoration: underline;
-}
-.buttonU:active{
-  transform: scale(1.15);
-  text-decoration: underline;
+
+  &:active,
+  &:hover {
+    transform: scale(1.15);
+    text-decoration: underline;
+  }
 }
 
 .titleUU {
@@ -159,11 +158,12 @@ body {
   margin-top: 200px;
   margin-bottom: 48px;
 }
+
 .buttonUU {
   border-radius: 20px;
   border: 1px solid white;
-  background: transparent; 
-  color: white; 
+  background: transparent;
+  color: white;
   font-size: 12px;
   font-weight: bold;
   padding: 12px 45px;
@@ -173,17 +173,15 @@ body {
   cursor: pointer;
   margin-top: 60px;
 
-}
+  &:hover {
+    text-decoration: underline;
+    transform: scale(1.01);
+  }
 
-.buttonUU:hover {
-  text-decoration: underline ;
-  transform: scale(1.01);
+  &:active {
+    transform: scale(0.95);
+  }
 }
-
-.buttonUU:active {
-  transform: scale(0.95);
-}
-
 
 @media screen and (max-width: 1000px) {
   .containerUU {
@@ -196,32 +194,31 @@ body {
 
   .wrapperU::after {
     font-size: 24px;
-    color: coral;
+    color: $primary-color;
     display: inline-block;
     margin-left: 10px;
     cursor: pointer;
   }
-
 }
+
 .content {
-  background: linear-gradient(to right, coral, #f5434c);
+  background: linear-gradient(to right, $primary-color, $secondary-color);
   -webkit-background-clip: text;
   background-clip: text;
-  color: coral;
+  color: $primary-color;
   margin-bottom: 20px;
   margin-right: 100px;
-  display: inline-block; 
+  display: inline-block;
 }
+
 .icon {
-  color: coral; 
-  vertical-align: middle; 
-  margin-left: 5px; 
+  color: $primary-color;
+  vertical-align: middle;
+  margin-left: 5px;
 }
+
 .error-message {
   color: red;
- font-size: 8px;
- font-weight: bold;
-}
-.inputU.error {
-  border-color: red; 
+  font-size: 8px;
+  font-weight: bold;
 }

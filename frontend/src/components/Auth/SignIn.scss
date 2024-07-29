@@ -1,8 +1,5 @@
 @import url("https://fonts.googleapis.com/css?family=Montserrat:400,800");
 
-.wrapperI{
-  display: flex;
-}
 body {
   background: #ffffff;
   display: flex;
@@ -13,6 +10,11 @@ body {
   height: 100vh;
   margin: -20px 0 50px;
 }
+
+.wrapperI {
+  display: flex;
+}
+
 .form-containerI {
   display: flex;
   flex-direction: column;
@@ -20,6 +22,7 @@ body {
   justify-content: center; 
   width: 100%; 
 }
+
 .containerI, .containerII {
   box-shadow: 0 0px 5px coral, 0 10px 10px rgba(0, 0, 0, 0.22);
   padding: 50px;
@@ -31,30 +34,19 @@ body {
 
 .containerI {
   background-color: #fff;
+  border-radius: 20px 5px 5px 20px;
 }
-.containerI{
-  border-top-right-radius: 20px;
-  border-bottom-right-radius: 20px;
-  border-top-left-radius: 5px;
-  border-bottom-left-radius: 5px;
-}
-.containerII{ 
-  border-top-right-radius: 5px;
-  border-bottom-right-radius: 5px;
-  border-top-left-radius: 20px;
-  border-bottom-left-radius: 20px;
-}
+
 .containerII {
   background: linear-gradient(to right, coral, #f5434c);
   height: auto;
+  border-radius: 5px 20px 20px 5px;
 }
-
 
 .social-containerI {
   display: flex;
   justify-content: center;
   margin-bottom: 20px;
-
 }
 
 .socialI {
@@ -69,8 +61,13 @@ body {
   color: #333;
   font-size: 20px;
   text-decoration: none;
-  
+  transition: background-color 0.3s;
 }
+
+.socialI:hover {
+  background-color: #ffffff;
+}
+
 .socialI.facebook:hover {
   color: #3b5998;
 }
@@ -82,10 +79,6 @@ body {
 .socialI.linkedin:hover {
   color: #0e76a8; 
 }
-.socialI:hover {
-  background-color: #ffffff;
-
-}
 
 .inputI {
   background-color: #eee;
@@ -95,15 +88,13 @@ body {
   padding: 12px 15px;
   margin: 8px 0;
   width: 100%;
+  transition: border-color 0.3s;
 }
-.inputI:focus{
-  background-color: #eee;
+
+.inputI:focus {
   border: 2px solid coral;
-  outline: none;
-  padding: 12px 15px;
-  margin: 8px 0;
-  width: 100%;
 }
+
 .link {
   color: #007BFF;
   font-size: 14px;
@@ -113,34 +104,37 @@ body {
 }
 
 .titleI {
-    font-weight: bold;
-    font-size: 42px;
-    margin: 0;
-    margin-bottom: 40px;
-    background: linear-gradient(to right, coral, #f5434c);
-    -webkit-background-clip: text;
-    color: transparent;
-  }
-.buttonI {
-    border-radius: 20px;
-    border: 1px solid white;
+  font-weight: bold;
+  font-size: 42px;
+  margin: 0;
+  margin-bottom: 40px;
+  background: linear-gradient(to right, coral, #f5434c);
+  -webkit-background-clip: text;
+  color: transparent;
+}
 
-    background: linear-gradient(to right, coral, #f5434c);
-    color: #ffffff;
-    font-size: 12px;
-    font-weight: bold;
-    padding: 12px 45px;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    transition: transform 0.3s ease;
-    cursor: pointer;
+.buttonI {
+  border-radius: 20px;
+  border: 1px solid white;
+  background: linear-gradient(to right, coral, #f5434c);
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: bold;
+  padding: 12px 45px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: transform 0.3s ease;
+  cursor: pointer;
 }
-.buttonI:hover{
-    transform: scale(1.1);
+
+.buttonI:hover {
+  transform: scale(1.1);
 }
+
 .buttonI:active {
   transform: scale(0.95);
 }
+
 .titleII {
   color: white;
   font-weight: bold;
@@ -152,6 +146,7 @@ body {
   font-style: italic;
   margin-top: 165px;
 }
+
 .buttonII {
   border-radius: 20px;
   border: 1px solid white;
@@ -165,11 +160,10 @@ body {
   transition: transform 0.3s ease;
   cursor: pointer;
   margin-top: 50px;
-
 }
 
 .buttonII:hover {
-  text-decoration: underline ;
+  text-decoration: underline;
   transform: scale(1.01);
 }
 
@@ -185,7 +179,8 @@ body {
   margin-bottom: 40px;
   cursor: pointer;
 }
-.link-signup:hover{
+
+.link-signup:hover {
   text-decoration: underline;
 }
 
@@ -208,19 +203,18 @@ body {
   }
 
   .link-signup {
-    margin-top: 0px;
+    margin-top: 0;
     display: block;
     text-align: center;
   }
 }
 
-
 .error-message {
   color: red;
- font-size: 8px;
- font-weight: bold;
+  font-size: 8px;
+  font-weight: bold;
 }
+
 .inputI.error {
   border-color: red; 
 }
-

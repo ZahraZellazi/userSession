@@ -3,6 +3,7 @@ import axios from 'axios';
 import { FaFacebook, FaGoogle, FaLinkedin } from 'react-icons/fa';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { Link } from 'react-router-dom';
 import './SignUp.css';
 
 const SignUp = ({ onSwitch }) => {
@@ -36,7 +37,7 @@ const SignUp = ({ onSwitch }) => {
     // If there are no errors, proceed to send data to the backend
     if (Object.keys(newErrors).length === 0) {
       try {
-        const response = await axios.post('http://localhost:6500/auth/signup', { name, email, password });
+        const response = await axios.post('http://localhost:6500/signup', { name, email, password });
 
         if (response.status === 201) {
           toast.success('Sign up successful!');
@@ -54,6 +55,10 @@ const SignUp = ({ onSwitch }) => {
     } else {
       setErrors(newErrors);
     }
+  };
+  const handleClick = () => {
+    onSwitch();
+    navigate('/signup');
   };
 
   return (
@@ -105,7 +110,9 @@ const SignUp = ({ onSwitch }) => {
       <div className="containerUU">
         <div className="titleUU">Welcome Back!</div>
         <p className='paragUU'>Already have an account, <br />Login with your personal info.</p>
-        <button className="buttonUU" onClick={onSwitch}>Sign In</button>
+        <Link to="/login">
+          <button className="buttonUU" onClick={onSwitch}>Sign In</button>
+        </Link>
       </div>
       <ToastContainer />
     </div>

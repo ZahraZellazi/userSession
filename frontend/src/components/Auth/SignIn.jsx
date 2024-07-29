@@ -3,6 +3,7 @@ import axios from 'axios';
 import { FaFacebook, FaGoogle, FaLinkedin } from 'react-icons/fa';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { Link } from 'react-router-dom';
 import './SignIn.css';
 
 const SignIn = ({ onSwitch }) => {
@@ -34,7 +35,7 @@ const SignIn = ({ onSwitch }) => {
     // If there are no errors, proceed to send data to the backend
     if (Object.keys(newErrors).length === 0) {
       try {
-        const response = await axios.post('http://localhost:6500/auth/login', { email, password });
+        const response = await axios.post('http://localhost:6500/login', { email, password });
 
         if (response.status === 200) {
           toast.success('Sign in successful!');
@@ -62,10 +63,15 @@ const SignIn = ({ onSwitch }) => {
           Create an account with your personal info <br />
           click below!
         </p>
+        <Link to="/signup">
         <button className="buttonII" onClick={onSwitch}>Sign Up</button>
+      </Link>
       </div>
       <div className="containerI">
         <div className='titleI'>Sign In</div>
+        <p className="link-signup">
+            Don’t have an account? sign up <link href="/signup" className="link"></link>
+          </p>
         <div className="social-containerI">
           <a href="*" className="socialI facebook"><FaFacebook /></a>
           <a href="*" className="socialI google"><FaGoogle /></a>

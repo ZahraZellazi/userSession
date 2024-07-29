@@ -116,7 +116,7 @@ body {
     font-weight: bold;
     font-size: 42px;
     margin: 0;
-    margin-bottom: 70px;
+    margin-bottom: 40px;
     background: linear-gradient(to right, coral, #f5434c);
     -webkit-background-clip: text;
     color: transparent;
@@ -176,6 +176,19 @@ body {
 .buttonII:active {
   transform: scale(0.95);
 }
+
+.link-signup {
+  display: none;
+  color: #007BFF;
+  font-size: 14px;
+  text-decoration: none;
+  margin-bottom: 40px;
+  cursor: pointer;
+}
+.link-signup:hover{
+  text-decoration: underline;
+}
+
 @media screen and (max-width: 1000px) {
   .containerII {
     display: none;
@@ -192,6 +205,12 @@ body {
   .switch {
     display: inline-block; 
     margin-top: 20px; 
+  }
+
+  .link-signup {
+    margin-top: 0px;
+    display: block;
+    text-align: center;
   }
 }
 

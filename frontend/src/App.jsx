@@ -1,6 +1,8 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import SignIn from './components/Auth/SignIn';
 import SignUp from './components/Auth/SignUp';
+
 function App() {
   const [isSignIn, setIsSignIn] = useState(true);
 
@@ -9,13 +11,12 @@ function App() {
   };
 
   return (
-    <div>
-      {isSignIn ? (
-        <SignIn onSwitch={toggleForm} />
-      ) : (
-        <SignUp onSwitch={toggleForm} />
-      )}
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/login" element={<SignIn onSwitch={toggleForm} isSignIn={isSignIn} />} />
+        <Route path="/signup" element={<SignUp onSwitch={toggleForm} isSignIn={!isSignIn} />} />
+      </Routes>
+    </Router>
   );
 }
 

@@ -5,12 +5,10 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const { authenticateToken } = require('./middleware'); 
 const app = express();
-
-// Middleware
 app.use(express.json());
 app.use(cors());
 
-// Database Connection
+// Database
 mongoose.connect("mongodb+srv://zahra:zahra030702@cluster0.e6d8kvo.mongodb.net/session?retryWrites=true&w=majority", {
     useNewUrlParser: true,
     useUnifiedTopology: true,
@@ -18,7 +16,7 @@ mongoose.connect("mongodb+srv://zahra:zahra030702@cluster0.e6d8kvo.mongodb.net/s
 .then(() => console.log('Connected to MongoDB'))
 .catch(err => console.error('Failed to connect to MongoDB', err));
 
-// User Schema
+//Schema
 const UserSchema = new mongoose.Schema({
   name: { type: String, required: true },
   email: { type: String, unique: true, required: true },
@@ -27,7 +25,7 @@ const UserSchema = new mongoose.Schema({
 
 const User = mongoose.model('User', UserSchema);
 
-// Sign Up Route
+// Sign Up
 app.post('/signup', async (req, res) => {
   const { name, email, password } = req.body;
   
@@ -54,7 +52,7 @@ app.post('/signup', async (req, res) => {
   }
 });
 
-// Login Route
+// Login
 app.post('/login', async (req, res) => {
   const { email, password } = req.body;
 

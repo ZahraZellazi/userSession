@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 import { FaFacebook, FaGoogle, FaLinkedin } from 'react-icons/fa';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -8,36 +9,45 @@ const SignIn = ({ onSwitch }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [errors, setErrors] = useState({});
-  
 
+  // Validate email address
   const validateEmail = (email) => {
     const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return re.test(email);
   };
 
+  // Validate password
   const validatePassword = (password) => {
     const re = /^(?=.*[A-Z])(?=.*[!@#$&*]).{8,}$/;
     return re.test(password);
   };
 
-  const handleSubmit = (e) => {
+  // Handle form submission
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    const newErrors = {}; //empty pour stocker les errs
-  
-    if (!validateEmail(email)) {
-      newErrors.email = 'Invalid email address';
-    }
-  
-    if (!validatePassword(password)) {
-      newErrors.password = 'Password must be at least 8 characters long, contain at least one special character, and one uppercase letter';
-    }
-  //if signup successful errs msg  disapears so we reset the email name and pass
+    const newErrors = {}; // Empty object to store errors
+
+    // Validate input fields
+    if (!validateEmail(email)) newErrors.email = 'Invalid email address';
+    if (!validatePassword(password)) newErrors.password = 'Password must be at least 8 characters long, contain at least one special character, and one uppercase letter';
+
+    // If there are no errors, proceed to send data to the backend
     if (Object.keys(newErrors).length === 0) {
-      console.log('Form submitted', { email, password });
-      toast.success('Sign up successful!');
-      setEmail('');
-      setPassword('');
-      setErrors({});
+      try {
+        const response = await axios.post('http://localhost:6500/auth/login', { email, password });
+
+        if (response.status === 200) {
+          toast.success('Sign in successful!');
+          setEmail('');
+          setPassword('');
+          setErrors({});
+        } else {
+          toast.error(response.data.error || 'Sign in failed');
+        }
+      } catch (error) {
+        toast.error('An unexpected error occurred');
+        console.error('Sign in error:', error);
+      }
     } else {
       setErrors(newErrors);
     }
